@@ -163,6 +163,11 @@ value="0">
 
 <div id="remain">
 20
+<br><br>
+
+<button onclick="saveLeave()">
+Save
+</button>
 </div>
 
 </div>
@@ -182,7 +187,32 @@ document
 calc();
 
 }
+<br><br>
 
+<button onclick="saveLeave()">
+Save
+</button>
+function calculateLeave(){
+
+let total=
+document.getElementById("total").value;
+
+let used=
+document.getElementById("used").value;
+
+document.getElementById("remain")
+.innerHTML=
+total-used;
+
+}
+
+function saveLeave(){
+
+calculateLeave();
+
+alert("সেভ হয়েছে");
+
+}
 function calc(){
 
 let total=
