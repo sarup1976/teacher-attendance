@@ -127,26 +127,24 @@ onchange="showLeave()"
 <option>
 মেরিনা পারভীন
 </option>
-
-</select>
-
-
-<div id="leavebox">
+<div id="leavebox"
+style="display:none">
 
 মোট ছুটি
 
 <input
-type="number"
 id="total"
+type="number"
 value="20"
+oninput="calculateLeave()"
 
 
 
 ভোগকৃত ছুটি
 
 <input
-type="number"
 id="used"
+type="number"
 value="0"
 oninput="calculateLeave()"
 
@@ -160,14 +158,18 @@ oninput="calculateLeave()"
 
 <br>
 
-<button onclick="saveLeave()">
+<button
+onclick="saveLeave()"
+
+
+
 Save
+
 </button>
 
 </div>
 
 </div>
-
 
 <script>
 
@@ -199,15 +201,16 @@ document
 "block";
 
 let saved=
-localStorage
-.getItem(
+localStorage.getItem(
 teacher
 );
 
 if(saved){
 
 saved=
-JSON.parse(saved);
+JSON.parse(
+saved
+);
 
 document
 .getElementById(
@@ -222,24 +225,6 @@ document
 )
 .value=
 saved.used;
-
-}
-
-else{
-
-document
-.getElementById(
-"total"
-)
-.value=
-20;
-
-document
-.getElementById(
-"used"
-)
-.value=
-0;
 
 }
 
@@ -309,14 +294,13 @@ document
 
 localStorage
 .setItem(
-
 teacher,
-
 JSON.stringify(
 info
 )
+);
 
-); calculateLeave(): 
+calculateLeave();
 
 alert(
 "সেভ হয়েছে"
@@ -330,3 +314,4 @@ alert(
 
 </html>
 Compose
+
