@@ -157,41 +157,30 @@ Save
 </button>
 
 </div>
-
 <script>
 
-let data={};
-
 function showLeave(){
+
+document.getElementById(
+"leavebox"
+).style.display="block";
 
 let teacher=
 document.getElementById("teacher").value;
 
-if(teacher==""){
-document.getElementById("leavebox").style.display="none";
-return;
-}
+let saved=
+localStorage.getItem(teacher);
 
-document.getElementById("leavebox")
-.style.display="block";
+if(saved){
 
-if(localStorage.getItem(teacher)){
+saved=
+JSON.parse(saved);
 
-data=JSON.parse(
-localStorage.getItem(teacher)
-);
+document.getElementById("total").value=
+saved.total;
 
-document.getElementById("total").value=data.total;
-
-document.getElementById("used").value=data.used;
-
-}
-
-else{
-
-document.getElementById("total").value=20;
-
-document.getElementById("used").value=0;
+document.getElementById("used").value=
+saved.used;
 
 }
 
@@ -212,7 +201,8 @@ document.getElementById("used").value
 );
 
 document.getElementById("remain")
-.innerHTML=total-used;
+.innerHTML=
+total-used;
 
 }
 
@@ -236,22 +226,21 @@ teacher,
 JSON.stringify(info)
 );
 
-  localStorage.setItem(
-teacher,
-JSON.stringify(info)
-);
-
-alert("সেভ হয়েছে");
-
-}
 calculateLeave();
 
 alert("সেভ হয়েছে");
 
 }
 
-</script>
+document
+.getElementById("used")
+.addEventListener(
+"input",
+calculateLeave
+);
 
-</body>
-</html>
+</script>
 Compose
+
+
+
