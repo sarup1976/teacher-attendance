@@ -31,7 +31,7 @@ padding:10px 20px;
 <body>
 
 <h1>শিক্ষক উপস্থিতি</h1>
-
+<p id="date"></p>
 <div class="card">
 স্বরুপ দাস (প্রধান শিক্ষক)
 <select>
@@ -96,6 +96,8 @@ padding:10px 20px;
 <button onclick="saveAttendance()">Save Attendance</button>
 
 <script>
+  document.getElementById("date").innerHTML =
+"তারিখ: " + new Date().toLocaleDateString("bn-BD");
 function saveAttendance(){
 localStorage.setItem(
 "attendance",
