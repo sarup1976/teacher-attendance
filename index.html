@@ -310,7 +310,20 @@ new Event("change")
 }
 
 }
+document.querySelectorAll("select").forEach(function(item){
 
+item.onchange=function(){
+
+this.className=
+this.value.toLowerCase();
+
+};
+
+item.dispatchEvent(
+new Event("change")
+);
+
+});
 </script>
 
 </body>
