@@ -214,6 +214,28 @@ saved
 
 document
 .getElementById(
+  if(saved){
+
+saved=
+JSON.parse(saved);
+
+document.getElementById("total").value=
+saved.total;
+
+document.getElementById("used").value=
+saved.used;
+
+}
+
+else{
+
+document.getElementById("total").value=20;
+
+document.getElementById("used").value=0;
+
+}
+
+calculateLeave();
 "total"
 )
 .value=
