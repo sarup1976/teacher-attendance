@@ -3,36 +3,49 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Teacher Attendance</title>
 
 <style>
 
 body{
 font-family:Arial;
-padding:20px;
+padding:15px;
 background:#EAF4FF;
+}
+
+h1{
+color:#0B4F8A;
+}
+
+#date{
+font-size:18px;
+margin-bottom:15px;
 }
 
 .card{
-border:1px solid #ddd;
-padding:10px;
-margin:10px;
-border-radius:8px;
+background:white;
+border-radius:10px;
+padding:12px;
+margin-bottom:10px;
+box-shadow:0 2px 8px rgba(0,0,0,.08);
 }
 
 select{
-padding:8px;
+padding:10px;
+font-size:16px;
+border-radius:6px;
 }
-body{
-font-family:Arial;
-padding:20px;
-background:#EAF4FF;
-}
+
 button{
-padding:10px 20px;
+padding:12px 20px;
 background:#2E7D32;
 color:white;
+border:none;
+border-radius:8px;
+font-size:18px;
 }
+
 .present{
 background:#DFF6DD;
 }
@@ -48,11 +61,7 @@ background:#FFF2CC;
 .leave{
 background:#E6D5FF;
 }
-button{
-padding:10px 20px;
-background:#2E7D32;
-color:white;
-}
+
 </style>
 
 </head>
@@ -60,7 +69,9 @@ color:white;
 <body>
 
 <h1>শিক্ষক উপস্থিতি</h1>
-<p id="date"></p>
+
+<div id="date"></div>
+
 <div class="card">
 স্বরুপ দাস (প্রধান শিক্ষক)
 <select>
@@ -121,8 +132,11 @@ color:white;
 </select>
 </div>
 
+<br>
 
-<button onclick="saveAttendance()">Save Attendance</button>
+<button onclick="saveAttendance()">
+Save Attendance
+</button>
 
 <script>
 
@@ -130,8 +144,12 @@ function saveAttendance(){
 
 let data=[];
 
-document.querySelectorAll("select").forEach(function(item){
+document
+.querySelectorAll("select")
+.forEach(function(item){
+
 data.push(item.value);
+
 });
 
 localStorage.setItem(
@@ -141,7 +159,8 @@ JSON.stringify(data)
 
 localStorage.setItem(
 "date",
-new Date().toLocaleDateString("bn-BD")
+new Date()
+.toLocaleDateString("bn-BD")
 );
 
 alert("উপস্থিতি Save হয়েছে");
@@ -149,75 +168,57 @@ alert("উপস্থিতি Save হয়েছে");
 }
 
 window.onload=function(){
-ody{
-font-family:Arial;
-padding:20px;
-background:#EAF4FF;
-}
-button{
-padding:10px 20px;
-background:#2E7D32;
-color:white;
-}
-.present{
-background:#DFF6DD;
-}
 
-.absent{
-background:#FFD6D6;
-}
-
-.late{
-background:#FFF2CC;
-}
-
-.leave{
-background:#E6D5FF;
-}
-
-document.getElementById("date").innerHTML =
-"তারিখ: " +
-new Date().toLocaleDateString("bn-BD");
+document
+.getElementById("date")
+.innerHTML=
+"তারিখ: "+
+new Date()
+.toLocaleDateString("bn-BD");
 
 let saved=
-localStorage.getItem("attendance");
+localStorage
+.getItem("attendance");
 
 if(saved){
 
 saved=JSON.parse(saved);
 
+document
+.querySelectorAll("select")
+.forEach(function(item,index){
+
 if(saved[index]){
-item.value=saved[index];
+
+item.value=
+saved[index];
+
 item.className=
-saved[index].toLowerCase();
-}
-document.querySelectorAll("select")
-.forEach(function(s,index){
+saved[index]
+.toLowerCase();
 
-if(saved[index]){
-s.value=saved[index];
-s.className=
-saved[index].toLowerCase();
 }
 
-s.onchange=function(){
+item.onchange=
+function(){
 
 this.className=
-this.value.toLowerCase();
+this.value
+.toLowerCase();
 
 };
 
-s.dispatchEvent(
+item.dispatchEvent(
 new Event("change")
 );
 
 });
-);
 
-});
+}
 
 }
 
 </script>
+
 </body>
 </html>
