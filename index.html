@@ -186,22 +186,19 @@ if(saved){
 
 saved=JSON.parse(saved);
 
-document.querySelectorAll("select")
-.forEach(function(item,index){
-
 if(saved[index]){
-item.value=saved[index];
-  if(saved[index]){
 item.value=saved[index];
 item.className=
 saved[index].toLowerCase();
 }
-}
-
-});
-
 document.querySelectorAll("select")
-.forEach(function(s){
+.forEach(function(s,index){
+
+if(saved[index]){
+s.value=saved[index];
+s.className=
+saved[index].toLowerCase();
+}
 
 s.onchange=function(){
 
@@ -212,6 +209,9 @@ this.value.toLowerCase();
 
 s.dispatchEvent(
 new Event("change")
+);
+
+});
 );
 
 });
