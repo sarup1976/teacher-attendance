@@ -23,7 +23,31 @@ border-radius:8px;
 select{
 padding:8px;
 }
+body{
+font-family:Arial;
+padding:20px;
+background:#EAF4FF;
+}
+button{
+padding:10px 20px;
+background:#2E7D32;
+color:white;
+}
+.present{
+background:#DFF6DD;
+}
 
+.absent{
+background:#FFD6D6;
+}
+
+.late{
+background:#FFF2CC;
+}
+
+.leave{
+background:#E6D5FF;
+}
 button{
 padding:10px 20px;
 background:#2E7D32;
@@ -125,7 +149,41 @@ alert("উপস্থিতি Save হয়েছে");
 }
 
 window.onload=function(){
+ody{
+font-family:Arial;
+padding:20px;
+background:#EAF4FF;
+}
+button{
+padding:10px 20px;
+background:#2E7D32;
+color:white;
+}
+.present{
+background:#DFF6DD;
+}
 
+.absent{
+background:#FFD6D6;
+}
+
+.late{
+background:#FFF2CC;
+}
+
+.leave{
+background:#E6D5FF;
+}
+document.querySelectorAll("select").forEach(function(s){
+
+s.onchange=function(){
+
+s.className=
+s.value.toLowerCase();
+
+};
+
+});
 document.getElementById("date").innerHTML =
 "তারিখ: " +
 new Date().toLocaleDateString("bn-BD");
