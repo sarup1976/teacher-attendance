@@ -7,27 +7,39 @@
 <title>Teacher Attendance</title>
 
 <style>
-<script>
-
-function changeColor(x){
-
-if(
-x.value=="Leave"
-){
-
-x.className="leave";
-
+body{
+font-family:Arial;
+padding:15px;
+background:#EAF4FF;
 }
 
-else{
-
-x.className="present";
-
+.teacher-name{
+color:#0b5394;
+font-size:24px;
+font-weight:bold;
 }
 
+.present{
+background:#22c55e;
+color:white;
 }
 
-</script>
+.leave{
+background:#ef4444;
+color:white;
+}
+
+.absent{
+background:#f59e0b;
+color:white;
+}
+
+select{
+padding:10px;
+font-size:18px;
+border-radius:10px;
+font-weight:bold;
+}
 body{
 font-family:Arial;
 padding:15px;
