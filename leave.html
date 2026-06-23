@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
 <meta charset="utf-8">
-
-<meta name="viewport"
-content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>ছুটির হিসাব</title>
 
@@ -14,32 +10,24 @@ content="width=device-width,initial-scale=1">
 
 body{
 font-family:Arial;
-background:linear-gradient(135deg,#E3F2FD,#F8FBFF);
+background:linear-gradient(135deg,#E8F4FF,#F8FBFF);
 padding:20px;
 }
 
 h1{
 text-align:center;
+color:#1555C0;
 font-size:48px;
-color:#1565C0;
 }
 
-select{
-
+select,input{
 width:100%;
-
 max-width:500px;
-
 padding:15px;
-
 font-size:22px;
-
 border:none;
-
 border-radius:12px;
-
 box-shadow:0 5px 20px rgba(0,0,0,.15);
-
 }
 
 #leavebox{
@@ -60,17 +48,11 @@ max-width:700px;
 
 }
 
-input{
+.label{
 
-padding:12px;
+font-size:28px;
 
-font-size:22px;
-
-width:140px;
-
-border-radius:10px;
-
-border:2px solid #90CAF9;
+margin-bottom:10px;
 
 }
 
@@ -78,15 +60,33 @@ border:2px solid #90CAF9;
 
 font-size:40px;
 
-color:#2E7D32;
+color:green;
 
 font-weight:bold;
 
 }
 
-.label{
+button{
+
+padding:15px 40px;
 
 font-size:24px;
+
+background:#1555C0;
+
+color:white;
+
+border:none;
+
+border-radius:12px;
+
+cursor:pointer;
+
+}
+
+button:hover{
+
+background:#003EA0;
 
 }
 
@@ -98,42 +98,25 @@ font-size:24px;
 
 <h1>ছুটির হিসাব</h1>
 
-<select id="teacher"
-onchange="showLeave()">
+<select id="teacher" onchange="showLeave()">
 
-<option>
-শিক্ষক নির্বাচন করুন
-</option>
+<option value="">শিক্ষক নির্বাচন করুন</option>
 
-<option>
-স্বরুপ দাস (প্রধান শিক্ষক)
-</option>
+<option>স্বরুপ দাস (প্রধান শিক্ষক)</option>
 
-<option>
-মোঃ আতিউর রহমান
-</option>
+<option>মোঃ আতিকুর রহমান</option>
 
-<option>
-মোসাঃ সেলিনা খাতুন
-</option>
+<option>সেলিনা খাতুন</option>
 
-<option>
-সেলিনা পারভীন
-</option>
+<option>সরদার সিয়ারী খানম</option>
 
-<option>
-সরদার পিয়ারী খানম
-</option>
-
-<option>
-মেরিনা পারভীন
-</option>
+<option>মেরিনা পারভীন</option>
 
 </select>
 
-<div id="leavebox">
+<br><br>
 
-<br>
+<div id="leavebox">
 
 <div class="label">
 মোট ছুটি:
@@ -142,7 +125,8 @@ onchange="showLeave()">
 <input
 type="number"
 id="total"
-value="20">
+value="20"
+oninput="calculateLeave()">
 
 <br><br>
 
@@ -153,108 +137,113 @@ value="20">
 <input
 type="number"
 id="used"
-value="0">
+value="0"
+oninput="calculateLeave()">
 
 <br><br>
 
 <div class="label">
-পাওনা ছুটি:
+পাওয়া ছুটি:
 </div>
 
 <div id="remain">
 20
+</div>
+
 <br><br>
 
 <button onclick="saveLeave()">
 Save
 </button>
-</div>
 
 </div>
 
 <script>
 
+let data={};
+
 function showLeave(){
 
-document
-.getElementById(
-"leavebox"
-)
-.style
-.display=
-"block";
+let teacher=
+document.getElementById("teacher").value;
 
-calc();
+if(teacher==""){
+document.getElementById("leavebox").style.display="none";
+return;
+}
+
+document.getElementById("leavebox")
+.style.display="block";
+
+if(localStorage.getItem(teacher)){
+
+data=JSON.parse(
+localStorage.getItem(teacher)
+);
+
+document.getElementById("total").value=data.total;
+
+document.getElementById("used").value=data.used;
+
+}
+
+else{
+
+document.getElementById("total").value=20;
+
+document.getElementById("used").value=0;
+
+}
+
+calculateLeave();
 
 }
 
 function calculateLeave(){
 
 let total=
-document.getElementById("total").value;
+Number(
+document.getElementById("total").value
+);
 
 let used=
-document.getElementById("used").value;
+Number(
+document.getElementById("used").value
+);
 
 document.getElementById("remain")
-.innerHTML=
-total-used;
+.innerHTML=total-used;
 
 }
 
 function saveLeave(){
+
+let teacher=
+document.getElementById("teacher").value;
+
+let info={
+
+total:
+document.getElementById("total").value,
+
+used:
+document.getElementById("used").value
+
+};
+
+localStorage.setItem(
+teacher,
+JSON.stringify(info)
+);
 
 calculateLeave();
 
 alert("সেভ হয়েছে");
 
 }
-function calc(){
-
-let total=
-Number(
-document
-.getElementById(
-"total"
-).value
-);
-
-let used=
-Number(
-document
-.getElementById(
-"used"
-).value
-);
-
-document
-.getElementById(
-"remain"
-)
-.innerHTML=
-total-used;
-
-}
-
-document
-.querySelectorAll(
-"input"
-)
-
-.forEach(
-
-function(i){
-
-i.oninput=
-calc;
-
-}
-
-);
 
 </script>
 
 </body>
-
 </html>
 Compose
