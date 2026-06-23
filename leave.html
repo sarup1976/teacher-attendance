@@ -1,103 +1,80 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<title>ছুটির হিসাব</title>
-
-<style>
-
-body{
-font-family:Arial;
-padding:15px;
-background:#EAF4FF;
-}
-
-h1{
-text-align:center;
-color:#1565C0;
-font-size:34px;
-}
-
-.card{
-background:white;
-padding:15px;
-margin:15px 0;
-border-radius:10px;
-}
-
-input{
-width:80px;
-padding:8px;
-}
-
-.result{
-color:green;
-font-size:22px;
-font-weight:bold;
-}
-
-</style>
-
-</head>
-
-<body>
-
 <h1>ছুটির হিসাব</h1>
 
-<div class="card">
+<select id="teacher" onchange="showLeave()">
 
-স্বরুপ দাস (প্রধান শিক্ষক)
+<option value="">শিক্ষক নির্বাচন করুন</option>
+
+<option>স্বরুপ দাস (প্রধান শিক্ষক)</option>
+
+<option>মোঃ আতিউর রহমান</option>
+
+<option>মোসাঃ সেলিনা খাতুন</option>
+
+<option>সেলিনা পারভীন</option>
+
+<option>সরদার পিয়ারী খানম</option>
+
+<option>মেরিনা পারভীন</option>
+
+</select>
 
 <br><br>
 
+<div id="leavebox" style="display:none;">
+
 মোট ছুটি:
-<input type="number" id="total1" value="20">
+<input type="number" id="total" value="20">
 
 <br><br>
 
 ভোগকৃত ছুটি:
-<input type="number" id="used1" value="0">
+<input type="number" id="used" value="0">
 
 <br><br>
 
 পাওনা ছুটি:
-<span class="result" id="remain1">20</span>
+<b id="remain">20</b>
 
 </div>
 
 <script>
 
+function showLeave(){
+
+document
+.getElementById("leavebox")
+.style.display="block";
+
+calc();
+
+}
+
 function calc(){
 
 let total=
 Number(
-document.getElementById("total1").value
+document.getElementById("total").value
 );
 
 let used=
 Number(
-document.getElementById("used1").value
+document.getElementById("used").value
 );
 
-document.getElementById("remain1").innerHTML=
+document
+.getElementById("remain")
+.innerHTML=
 total-used;
 
 }
 
-document.querySelectorAll("input")
+document
+.querySelectorAll("input")
 .forEach(function(i){
 
 i.oninput=calc;
 
 });
 
-calc();
-
 </script>
-
-</body>
-</html>
 Compose
-
