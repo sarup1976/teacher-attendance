@@ -4,21 +4,20 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>ছুটির হিসাব</title>
 
 <style>
 
 body{
+background:#eefcff;
 font-family:Arial;
-background:#eaf7ff;
-padding:20px;
 }
 
-.card{
-max-width:700px;
+.box{
+width:700px;
 margin:auto;
+margin-top:40px;
 
 background:white;
 
@@ -26,13 +25,6 @@ padding:30px;
 
 border-radius:20px;
 
-box-shadow:0 10px 30px rgba(0,0,0,.12);
-
-}
-
-h1{
-text-align:center;
-color:#003399;
 }
 
 select,
@@ -41,39 +33,31 @@ button{
 
 width:100%;
 
-padding:14px;
-
-font-size:20px;
+padding:15px;
 
 margin-top:10px;
 
 margin-bottom:20px;
 
-border-radius:10px;
-
-border:1px solid #ddd;
+font-size:22px;
 
 }
 
 button{
 
-background:#1565C0;
+background:#2356ff;
 
 color:white;
 
 border:none;
 
-}
-
-#leavebox{
-
-display:none;
+cursor:pointer;
 
 }
 
 #remain{
 
-font-size:40px;
+font-size:45px;
 
 color:green;
 
@@ -87,9 +71,9 @@ font-weight:bold;
 
 <body>
 
-<div class="card">
+<div class="box">
 
-<h1>
+<h1 align="center">
 ছুটির হিসাব
 </h1>
 
@@ -97,38 +81,45 @@ font-weight:bold;
 <select
 id="teacher"
 onchange="showLeave()"
-
-
+>
 
 <option value="">
 শিক্ষক নির্বাচন করুন
 </option>
 
 <option>
-স্বরুপ দাস(প্রশি)
+মোঃ আব্দুর রহমান
 </option>
 
 <option>
-সোছাঃ সেলিনা খাতুন
+মোছাঃ সেলিনা খাতুন
 </option>
 
 <option>
-আতিকুর রহমান
+মোঃ রুবেল হোসেন
 </option>
 
 <option>
-সেলিনা পারভীন
+মোছাঃ শারমিন আক্তার
 </option>
 
 <option>
-সরদার পিয়ারী খানম
+মোঃ সোহেল রানা
 </option>
 
 <option>
-মেরিনা পারভীন
+মোছাঃ নাসরিন সুলতানা
 </option>
-<div id="leavebox"
-style="display:none">
+
+</select>
+
+
+
+<div
+id="leavebox"
+
+style="display:none"
+>
 
 মোট ছুটি
 
@@ -139,7 +130,6 @@ value="20"
 oninput="calculateLeave()"
 >
 
-
 ভোগকৃত ছুটি
 
 <input
@@ -149,11 +139,12 @@ value="0"
 oninput="calculateLeave()"
 >
 
-
 পাওনা ছুটি
 
 <div id="remain">
+
 20
+
 </div>
 
 <br>
@@ -161,7 +152,6 @@ oninput="calculateLeave()"
 <button
 onclick="saveLeave()"
 >
-
 
 Save
 
@@ -171,16 +161,21 @@ Save
 
 </div>
 
+
 <script>
 
 function showLeave(){
 
 let teacher=
-document.getElementById(
+document
+.getElementById(
 "teacher"
-).value;
+)
+.value;
 
-if(teacher==""){
+if(
+teacher==""
+){
 
 document
 .getElementById(
@@ -200,10 +195,13 @@ document
 .style.display=
 "block";
 
+
 let saved=
-localStorage.getItem(
+localStorage
+.getItem(
 teacher
 );
+
 
 if(saved){
 
@@ -214,28 +212,6 @@ saved
 
 document
 .getElementById(
-  if(saved){
-
-saved=
-JSON.parse(saved);
-
-document.getElementById("total").value=
-saved.total;
-
-document.getElementById("used").value=
-saved.used;
-
-}
-
-else{
-
-document.getElementById("total").value=20;
-
-document.getElementById("used").value=0;
-
-}
-
-calculateLeave();
 "total"
 )
 .value=
@@ -247,6 +223,24 @@ document
 )
 .value=
 saved.used;
+
+}
+
+else{
+
+document
+.getElementById(
+"total"
+)
+.value=
+20;
+
+document
+.getElementById(
+"used"
+)
+.value=
+0;
 
 }
 
@@ -276,6 +270,7 @@ document
 .value
 );
 
+
 document
 .getElementById(
 "remain"
@@ -290,15 +285,18 @@ total-used;
 function saveLeave(){
 
 let teacher=
+
 document
 .getElementById(
 "teacher"
 )
 .value;
 
+
 let info={
 
 total:
+
 document
 .getElementById(
 "total"
@@ -306,6 +304,7 @@ document
 .value,
 
 used:
+
 document
 .getElementById(
 "used"
@@ -314,15 +313,21 @@ document
 
 };
 
+
 localStorage
 .setItem(
+
 teacher,
+
 JSON.stringify(
 info
 )
+
 );
 
+
 calculateLeave();
+
 
 alert(
 "সেভ হয়েছে"
@@ -332,8 +337,7 @@ alert(
 
 </script>
 
+
 </body>
 
 </html>
-Compose
-
