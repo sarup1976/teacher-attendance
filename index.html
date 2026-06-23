@@ -195,7 +195,21 @@ item.value=saved[index];
 
 });
 
-}
+}document.querySelectorAll("select")
+.forEach(function(s){
+
+s.onchange=function(){
+
+this.className=
+this.value.toLowerCase();
+
+};
+
+s.dispatchEvent(
+new Event("change")
+);
+
+});
 
 }
 
