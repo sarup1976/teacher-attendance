@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,51 +8,59 @@
 <title>Teacher Attendance</title>
 
 <style>
+
 body{
-background:#eef4ff;
+background:#eef5ff;
 font-family:Arial;
 padding:20px;
 }
 
+h1{
+text-align:center;
+color:#1565C0;
+}
+
+#date{
+text-align:center;
+font-size:18px;
+margin-bottom:20px;
+}
+
 .card{
+
 display:flex;
+
 justify-content:space-between;
+
 align-items:center;
 
 background:white;
 
-padding:18px 22px;
+padding:18px;
 
-margin-bottom:14px;
+margin-bottom:15px;
 
 border-radius:18px;
 
-box-shadow:
-0 8px 20px
-rgba(0,0,0,.06);
+box-shadow:0 6px 20px rgba(0,0,0,.08);
 
-transition:.3s;
-}
-
-.card:hover{
-transform:translateY(-2px);
 }
 
 .teacher-name{
-font-size:22px;
 
-font-weight:700;
+font-size:24px;
 
-color:#0B3B8C;
+font-weight:bold;
 
-line-height:1.4;
+color:#0B5394;
+
 }
 
 select{
 
-min-width:180px;
+min-width:170px;
 
-padding:10px 15px;
+padding:12px;
 
 border:none;
 
@@ -59,225 +68,159 @@ border-radius:14px;
 
 font-size:18px;
 
-font-weight:700;
+font-weight:bold;
 
 cursor:pointer;
 
-box-shadow:
-0 4px 12px
-rgba(0,0,0,.10);
-
 outline:none;
 
-transition:.3s;
 }
 
 /* Present */
 .present{
-background:#22c55e;
-color:white;
-}
-
-/* Leave */
-.leave{
-background:#8b5cf6;
-color:white;
+background:#DCFCE7;
+color:#15803D;
 }
 
 /* Absent */
 .absent{
-background:#ef4444;
-color:white;
+background:#FEE2E2;
+color:#DC2626;
 }
 
 /* Late */
 .late{
-background:#f59e0b;
-color:white;
+background:#FEF3C7;
+color:#D97706;
 }
 
-h1{
-color:#082567;
-
-font-size:52px;
-
-margin-bottom:20px;
-}
-.teacher-name{
-color:#0b5394;
-font-size:24px;
-font-weight:bold;
-}
-
-.present{
-background:#0f9d58;
-color:green;
-font-weight:bold;
-}
-
+/* Leave */
 .leave{
-background:#d93025;
-color:white;
-font-weight:bold;
-}
-h1{
-color:#0B4F8A;
-}
-
-#date{
-font-size:18px;
-margin-bottom:15px;
-}
-
-.card{
-background:white;
-border-radius:10px;
-padding:12px;
-margin-bottom:10px;
-box-shadow:0 2px 8px rgba(0,0,0,.08);
-}
-
-select{
-padding:10px;
-font-size:16px;
-border-radius:6px;
+background:#EDE9FE;
+color:#7C3AED;
 }
 
 button{
-padding:12px 20px;
-background:#2E7D32;
-color:white;
-border:none;
-border-radius:8px;
-font-size:18px;
-}
 
+width:100%;
+
+padding:15px;
+
+font-size:20px;
+
+border:none;
+
+border-radius:15px;
+
+background:#1565C0;
+
+color:white;
+
+}
 
 </style>
 
 </head>
 
 <body>
-<h2 style="text-align:center;color:#1565C0;font-size:48px;">
-আজমপুর সপ্রাবি, দর্শনা
-</h2>
-<h1>শিক্ষক উপস্থিতি</h1> 
-  <div style="margin-bottom:20px;">
 
-<button onclick="location.href='index.html'">
-উপস্থিতি
-</button>
-
-<button onclick="location.href='leave.html'"
-style="
-margin-left:10px;
-background:#1565C0;
-color:white;
-">
-ছুটির হিসাব
-</button>
-
-</div>
+<h1>শিক্ষক উপস্থিতি</h1>
 
 <div id="date"></div>
+
 
 <div class="card">
 <span class="teacher-name">
 স্বরূপ দাস (প্রধান শিক্ষক)
 </span>
 
-<select
-class="present"
-onchange="this.className=this.value.toLowerCase()">
-
+<select class="present">
 <option value="Present">Present</option>
 <option value="Absent">Absent</option>
 <option value="Late">Late</option>
 <option value="Leave">Leave</option>
-
 </select>
-
 
 </div>
 
+
 <div class="card">
-  <span class="teacher-name">
-মোঃ আতিকুর রহমান (সহঃ শিক্ষক)
+
+<span class="teacher-name">
+মোঃ আতিউর রহমান (সহঃ শিক্ষক)
 </span>
-<select
-class="present"
-onchange="this.className=this.value.toLowerCase()">
 
+<select class="present">
 <option value="Present">Present</option>
 <option value="Absent">Absent</option>
 <option value="Late">Late</option>
 <option value="Leave">Leave</option>
-
 </select>
+
 </div>
 
+
 <div class="card">
-  <span class="teacher-name">
+
+<span class="teacher-name">
 মোছাঃ সেলিনা খাতুন
 </span>
-   <select
-class="present"
-onchange="this.className=this.value.toLowerCase()">
 
+<select class="present">
 <option value="Present">Present</option>
 <option value="Absent">Absent</option>
 <option value="Late">Late</option>
 <option value="Leave">Leave</option>
-
 </select>
+
 </div>
 
+
 <div class="card">
-  <span class="teacher-name">
+
+<span class="teacher-name">
 সেলিনা পারভীন
-    </span>
-<select
-class="present"
-onchange="this.className=this.value.toLowerCase()">
+</span>
 
+<select class="present">
 <option value="Present">Present</option>
 <option value="Absent">Absent</option>
 <option value="Late">Late</option>
 <option value="Leave">Leave</option>
-
 </select>
+
 </div>
 
+
 <div class="card">
-  <span class="teacher-name">
+
+<span class="teacher-name">
 সরদার পিয়ারী খানম
-    </span>
-<select
-class="present"
-onchange="this.className=this.value.toLowerCase()">
+</span>
 
+<select class="present">
 <option value="Present">Present</option>
 <option value="Absent">Absent</option>
 <option value="Late">Late</option>
 <option value="Leave">Leave</option>
-
 </select>
+
 </div>
 
-<div class="card">
-  <span class="teacher-name">
-মেরিনা পারভীন
-    </span>
-<select
-class="present"
-onchange="this.className=this.value.toLowerCase()">
 
+<div class="card">
+
+<span class="teacher-name">
+মেরিনা পারভীন
+</span>
+
+<select class="present">
 <option value="Present">Present</option>
 <option value="Absent">Absent</option>
 <option value="Late">Late</option>
 <option value="Leave">Leave</option>
-
 </select>
+
 </div>
 
 <br>
@@ -286,86 +229,12 @@ onchange="this.className=this.value.toLowerCase()">
 Save Attendance
 </button>
 
+
 <script>
-
-function saveAttendance(){
-
-let data=[];
 
 document
 .querySelectorAll("select")
 .forEach(function(item){
-
-data.push(item.value);
-
-});
-
-localStorage.setItem(
-"attendance",
-JSON.stringify(data)
-);
-
-localStorage.setItem(
-"date",
-new Date()
-.toLocaleDateString("bn-BD")
-);
-
-alert("উপস্থিতি Save হয়েছে");
-
-}
-
-window.onload=function(){
-
-document
-.getElementById("date")
-.innerHTML=
-"তারিখ: "+
-new Date()
-.toLocaleDateString("bn-BD");
-
-let saved=
-localStorage
-.getItem("attendance");
-
-if(saved){
-
-saved=JSON.parse(saved);
-
-document
-.querySelectorAll("select")
-.forEach(function(item,index){
-
-if(saved[index]){
-
-item.value=
-saved[index];
-
-item.className=
-saved[index]
-.toLowerCase();
-
-}
-
-item.onchange=
-function(){
-
-this.className=
-this.value
-.toLowerCase();
-
-};
-
-item.dispatchEvent(
-new Event("change")
-);
-
-});
-
-}
-
-}
-document.querySelectorAll("select").forEach(function(item){
 
 item.onchange=function(){
 
@@ -379,7 +248,85 @@ new Event("change")
 );
 
 });
+
+
+function saveAttendance(){
+
+let data=[];
+
+document
+.querySelectorAll("select")
+.forEach(function(item){
+
+data.push(
+item.value
+);
+
+});
+
+localStorage.setItem(
+"attendance",
+JSON.stringify(data)
+);
+
+alert(
+"উপস্থিতি Save হয়েছে"
+);
+
+}
+
+
+
+window.onload=function(){
+
+document
+.getElementById("date")
+.innerHTML=
+
+"তারিখ: "+
+
+new Date()
+.toLocaleDateString("bn-BD");
+
+
+let saved=
+
+localStorage
+.getItem(
+"attendance"
+);
+
+if(saved){
+
+saved=
+JSON.parse(saved);
+
+document
+.querySelectorAll("select")
+.forEach(function(
+item,
+index
+){
+
+if(saved[index]){
+
+item.value=
+saved[index];
+
+item.className=
+saved[index]
+.toLowerCase();
+
+}
+
+});
+
+}
+
+}
+
 </script>
 
 </body>
+
 </html>
