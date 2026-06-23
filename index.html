@@ -2,28 +2,47 @@
 <html>
 
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Teacher Attendance</title>
+<meta charset="utf-8">
+<meta name="viewport"
+content="width=device-width,initial-scale=1">
+
+<title>
+Teacher Attendance
+</title>
 
 <style>
 
 body{
-background:#eef5ff;
+
+background:#EEF4FF;
+
 font-family:Arial;
-padding:20px;
+
+padding:15px;
+
 }
 
 h1{
+
 text-align:center;
-color:#1565C0;
+
+color:#0F2D7A;
+
+font-size:32px;
+
 }
 
 #date{
+
 text-align:center;
-font-size:18px;
+
 margin-bottom:20px;
+
+font-size:18px;
+
+color:#555;
+
 }
 
 .card{
@@ -36,68 +55,88 @@ align-items:center;
 
 background:white;
 
-padding:18px;
+padding:15px;
 
-margin-bottom:15px;
+margin-bottom:12px;
 
 border-radius:18px;
 
-box-shadow:0 6px 20px rgba(0,0,0,.08);
+box-shadow:
+
+0 5px 15px
+
+rgba(0,0,0,.08);
 
 }
 
 .teacher-name{
 
-font-size:24px;
+font-size:18px;
 
-font-weight:bold;
+font-weight:600;
 
-color:#0B5394;
+color:#1D3E8A;
+
+flex:1;
 
 }
 
 select{
 
-min-width:170px;
+width:135px;
 
-padding:12px;
+padding:10px;
 
-border:none;
-
-border-radius:14px;
-
-font-size:18px;
+font-size:16px;
 
 font-weight:bold;
 
-cursor:pointer;
+border:none;
 
-outline:none;
+border-radius:12px;
+
+cursor:pointer;
 
 }
 
 /* Present */
+
 .present{
+
 background:#DCFCE7;
+
 color:#15803D;
+
 }
 
 /* Absent */
+
 .absent{
+
 background:#FEE2E2;
+
 color:#DC2626;
+
 }
 
 /* Late */
+
 .late{
+
 background:#FEF3C7;
+
 color:#D97706;
+
 }
 
 /* Leave */
+
 .leave{
+
 background:#EDE9FE;
+
 color:#7C3AED;
+
 }
 
 button{
@@ -106,15 +145,31 @@ width:100%;
 
 padding:15px;
 
-font-size:20px;
+font-size:18px;
 
 border:none;
 
 border-radius:15px;
 
-background:#1565C0;
+background:#2563EB;
 
 color:white;
+
+}
+
+@media(max-width:700px){
+
+.teacher-name{
+
+font-size:15px;
+
+}
+
+select{
+
+width:110px;
+
+}
 
 }
 
@@ -124,21 +179,40 @@ color:white;
 
 <body>
 
-<h1>শিক্ষক উপস্থিতি</h1>
+<h1>
+
+আজমপুর সপ্রাবি, দর্শনা
+
+</h1>
 
 <div id="date"></div>
 
 
 <div class="card">
-<span class="teacher-name">
-স্বরূপ দাস (প্রধান শিক্ষক)
-</span>
+<div class="teacher-name">
+স্বরুপ দাস (প্রধান শিক্ষক)
+</div>
 
-<select class="present">
-<option value="Present">Present</option>
-<option value="Absent">Absent</option>
-<option value="Late">Late</option>
-<option value="Leave">Leave</option>
+<select
+class="present"
+onchange="this.className=this.value.toLowerCase()">
+
+<option value="Present">
+Present
+</option>
+
+<option value="Absent">
+Absent
+</option>
+
+<option value="Late">
+Late
+</option>
+
+<option value="Leave">
+Leave
+</option>
+
 </select>
 
 </div>
@@ -146,15 +220,22 @@ color:white;
 
 <div class="card">
 
-<span class="teacher-name">
-মোঃ আতিউর রহমান (সহঃ শিক্ষক)
-</span>
+<div class="teacher-name">
+মোঃ আতিকুর রহমান
+</div>
 
-<select class="present">
+<select
+class="present"
+onchange="this.className=this.value.toLowerCase()">
+
 <option value="Present">Present</option>
+
 <option value="Absent">Absent</option>
+
 <option value="Late">Late</option>
+
 <option value="Leave">Leave</option>
+
 </select>
 
 </div>
@@ -162,15 +243,22 @@ color:white;
 
 <div class="card">
 
-<span class="teacher-name">
+<div class="teacher-name">
 মোছাঃ সেলিনা খাতুন
-</span>
+</div>
 
-<select class="present">
+<select
+class="present"
+onchange="this.className=this.value.toLowerCase()">
+
 <option value="Present">Present</option>
+
 <option value="Absent">Absent</option>
+
 <option value="Late">Late</option>
+
 <option value="Leave">Leave</option>
+
 </select>
 
 </div>
@@ -178,15 +266,22 @@ color:white;
 
 <div class="card">
 
-<span class="teacher-name">
+<div class="teacher-name">
 সেলিনা পারভীন
-</span>
+</div>
 
-<select class="present">
+<select
+class="present"
+onchange="this.className=this.value.toLowerCase()">
+
 <option value="Present">Present</option>
+
 <option value="Absent">Absent</option>
+
 <option value="Late">Late</option>
+
 <option value="Leave">Leave</option>
+
 </select>
 
 </div>
@@ -194,15 +289,22 @@ color:white;
 
 <div class="card">
 
-<span class="teacher-name">
+<div class="teacher-name">
 সরদার পিয়ারী খানম
-</span>
+</div>
 
-<select class="present">
+<select
+class="present"
+onchange="this.className=this.value.toLowerCase()">
+
 <option value="Present">Present</option>
+
 <option value="Absent">Absent</option>
+
 <option value="Late">Late</option>
+
 <option value="Leave">Leave</option>
+
 </select>
 
 </div>
@@ -210,118 +312,55 @@ color:white;
 
 <div class="card">
 
-<span class="teacher-name">
+<div class="teacher-name">
 মেরিনা পারভীন
-</span>
+</div>
 
-<select class="present">
+<select
+class="present"
+onchange="this.className=this.value.toLowerCase()">
+
 <option value="Present">Present</option>
+
 <option value="Absent">Absent</option>
+
 <option value="Late">Late</option>
+
 <option value="Leave">Leave</option>
+
 </select>
 
 </div>
+
 
 <br>
 
-<button onclick="saveAttendance()">
+<button
+onclick="saveAttendance()">
+
 Save Attendance
+
 </button>
 
 
 <script>
 
 document
-.querySelectorAll("select")
-.forEach(function(item){
-
-item.onchange=function(){
-
-this.className=
-this.value.toLowerCase();
-
-};
-
-item.dispatchEvent(
-new Event("change")
-);
-
-});
-
-
-function saveAttendance(){
-
-let data=[];
-
-document
-.querySelectorAll("select")
-.forEach(function(item){
-
-data.push(
-item.value
-);
-
-});
-
-localStorage.setItem(
-"attendance",
-JSON.stringify(data)
-);
-
-alert(
-"উপস্থিতি Save হয়েছে"
-);
-
-}
-
-
-
-window.onload=function(){
-
-document
 .getElementById("date")
 .innerHTML=
 
-"তারিখ: "+
+"তারিখঃ "+
 
 new Date()
 .toLocaleDateString("bn-BD");
 
 
-let saved=
 
-localStorage
-.getItem(
-"attendance"
+function saveAttendance(){
+
+alert(
+"উপস্থিতি সেভ হয়েছে"
 );
-
-if(saved){
-
-saved=
-JSON.parse(saved);
-
-document
-.querySelectorAll("select")
-.forEach(function(
-item,
-index
-){
-
-if(saved[index]){
-
-item.value=
-saved[index];
-
-item.className=
-saved[index]
-.toLowerCase();
-
-}
-
-});
-
-}
 
 }
 
