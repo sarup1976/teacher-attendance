@@ -153,11 +153,19 @@ font-size:18px;
 }
 <select
 class="present"
-onchange="changeColor(this)"
+onchange="this.className=this.value.toLowerCase()"
 >
 
 <option value="Present">
 Present
+</option>
+
+<option value="Absent">
+Absent
+</option>
+
+<option value="Late">
+Late
 </option>
 
 <option value="Leave">
@@ -165,21 +173,6 @@ Leave
 </option>
 
 </select>
-.present{
-background:#DFF6DD;
-}
-
-.absent{
-background:#FFD6D6;
-}
-
-.late{
-background:#FFF2CC;
-}
-
-.leave{
-background:#E6D5FF;
-}
 
 </style>
 
@@ -214,11 +207,11 @@ color:white;
 স্বরূপ দাস (প্রধান শিক্ষক)
 </span>
 
-<select class="present" onchange="changeStatusColor(this)">
-<option value="Present">Present</option>
-<option value="Leave">Leave</option>
-<option value="Late">Absent</option>
-<option value="Absent">Absent</option>
+<select>
+<option>Present</option>
+<option>Absent</option>
+<option>Late</option>
+<option>Leave</option>
 </select>
 
 
@@ -228,11 +221,11 @@ color:white;
   <span class="teacher-name">
 মোঃ আতিকুর রহমান (সহঃ শিক্ষক)
 </span>
-<select class="present" onchange="changeStatusColor(this)">
-<option value="Present">Present</option>
-<option value="Leave">Leave</option>
-<option value="Late">Absent</option>
-<option value="Absent">Absent</option>
+<select>
+<option>Present</option>
+<option>Absent</option>
+<option>Late</option>
+<option>Leave</option>
 </select>
 </div>
 
@@ -240,11 +233,11 @@ color:white;
   <span class="teacher-name">
 মোছাঃ সেলিনা খাতুন
 </span>
-    <select class="present" onchange="changeStatusColor(this)">
-<option value="Present">Present</option>
-<option value="Leave">Leave</option>
-<option value="Late">Absent</option>
-<option value="Absent">Absent</option>
+   <select>
+<option>Present</option>
+<option>Absent</option>
+<option>Late</option>
+<option>Leave</option>
 </select>
 </div>
 
@@ -252,11 +245,12 @@ color:white;
   <span class="teacher-name">
 সেলিনা পারভীন
     </span>
-<select class="present" onchange="changeStatusColor(this)">
-<option value="Present">Present</option>
-<option value="Leave">Leave</option>
-<option value="Late">Absent</option>
-<option value="Absent">Absent</option>
+<select>
+<option>Present</option>
+<option>Absent</option>
+<option>Late</option>
+<option>Leave</option>
+</select>
 </select>
 </div>
 
@@ -264,11 +258,12 @@ color:white;
   <span class="teacher-name">
 সরদার পিয়ারী খানম
     </span>
-<select class="present" onchange="changeStatusColor(this)">
-<option value="Present">Present</option>
-<option value="Leave">Leave</option>
-<option value="Late">Absent</option>
-<option value="Absent">Absent</option>
+<select>
+<option>Present</option>
+<option>Absent</option>
+<option>Late</option>
+<option>Leave</option>
+</select>
 </select>
 </div>
 
@@ -276,11 +271,12 @@ color:white;
   <span class="teacher-name">
 মেরিনা পারভীন
     </span>
-<select class="present" onchange="changeStatusColor(this)">
-<option value="Present">Present</option>
-<option value="Leave">Leave</option>
-<option value="Late">Absent</option>
-<option value="Absent">Absent</option>
+<select>
+<option>Present</option>
+<option>Absent</option>
+<option>Late</option>
+<option>Leave</option>
+</select>
 </select>
 </div>
 
