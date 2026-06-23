@@ -96,16 +96,55 @@ padding:10px 20px;
 <button onclick="saveAttendance()">Save Attendance</button>
 
 <script>
-  document.getElementById("date").innerHTML =
-"তারিখ: " + new Date().toLocaleDateString("bn-BD");
+
 function saveAttendance(){
+
+let data=[];
+
+document.querySelectorAll("select").forEach(function(item){
+data.push(item.value);
+});
+
 localStorage.setItem(
 "attendance",
-"আজকের উপস্থিতি সংরক্ষণ হয়েছে"
+JSON.stringify(data)
+);
+
+localStorage.setItem(
+"date",
+new Date().toLocaleDateString("bn-BD")
 );
 
 alert("উপস্থিতি Save হয়েছে");
+
 }
+
+window.onload=function(){
+
+document.getElementById("date").innerHTML =
+"তারিখ: " +
+new Date().toLocaleDateString("bn-BD");
+
+let saved=
+localStorage.getItem("attendance");
+
+if(saved){
+
+saved=JSON.parse(saved);
+
+document.querySelectorAll("select")
+.forEach(function(item,index){
+
+if(saved[index]){
+item.value=saved[index];
+}
+
+});
+
+}
+
+}
+
 </script>
 </body>
 </html>
